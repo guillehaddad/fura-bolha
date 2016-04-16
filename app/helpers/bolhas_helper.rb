@@ -1,0 +1,2 @@
+module BolhasHelper
+end

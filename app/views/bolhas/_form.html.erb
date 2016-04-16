@@ -1,0 +1,41 @@
+<%= form_for(@bolha) do |f| %>
+  <% if @bolha.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@bolha.errors.count, "error") %> prohibited this bolha from being saved:</h2>
+
+      <ul>
+      <% @bolha.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :l_name %><br>
+    <%= f.text_field :l_name %>
+  </div>
+  <div class="field">
+    <%= f.label :l_image %><br>
+    <%= f.file_field :l_image %>
+  </div>
+  <div class="field">
+    <%= f.label :r_name %><br>
+    <%= f.text_field :r_name %>
+  </div>
+  <div class="field">
+    <%= f.label :r_image %><br>
+    <%= f.file_field :r_image %>
+  </div>
+  <div class="field">
+    <%= f.label :content %><br>
+    <%= f.text_area :content %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

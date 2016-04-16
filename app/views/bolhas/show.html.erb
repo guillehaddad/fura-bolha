@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @bolha.title %>
+</p>
+
+<p>
+  <strong>L name:</strong>
+  <%= @bolha.l_name %>
+</p>
+
+<%= image_tag(@bolha.l_image.url(:large)) %>
+
+<p>
+  <strong>R name:</strong>
+  <%= @bolha.r_name %>
+</p>
+
+<%= image_tag(@bolha.r_image.url(:large)) %>
+
+<p>
+  <strong>Content:</strong>
+  <%= @bolha.content %>
+</p>
+
+<%= link_to 'Edit', edit_bolha_path(@bolha) %> |
+<%= link_to 'Back', bolhas_path %>
