@@ -1,32 +1,46 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Bolhas</h1>
+<h1>Furando Bolhas</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Title</th>
+      <th>Furando Bolhas</th>
+      <!--
       <th>L name</th>
       <th>L image</th>
       <th>R name</th>
       <th>R image</th>
       <th>Content</th>
       <th colspan="3"></th>
+      -->
     </tr>
   </thead>
+
+  <br />
 
   <tbody>
     <% @bolhas.each do |bolha| %>
       <tr>
         <td><%= bolha.title %></td>
+      </tr>
+      <tr>
         <td><%= bolha.l_name %></td>
-        <td><%= image_tag(bolha.l_image.url(:large)) %></td>
         <td><%= bolha.r_name %></td>
+      </tr>
+      <tr>
+        <td><%= image_tag(bolha.l_image.url(:large)) %></td>
         <td><%= image_tag(bolha.r_image.url(:large)) %></td>
+      </tr>
+      <tr>
         <td><%= bolha.content %></td>
-        <td><%= link_to 'Show', bolha %></td>
-        <td><%= link_to 'Edit', edit_bolha_path(bolha) %></td>
-        <td><%= link_to 'Destroy', bolha, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+      <tr>
+        <% if current_user %>
+          <td><%= link_to 'Show', bolha %></td>
+          <td><%= link_to 'Edit', edit_bolha_path(bolha) %></td>
+          <td><%= link_to 'Destroy', bolha, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

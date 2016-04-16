@@ -66,6 +66,19 @@ class BolhasController < ApplicationController
   end
 
   private
+
+    def user_login
+      unless current_user.present?
+        flash[:notice] = 'Você precisa efetuar o login para poder de publicar.'
+        redirect_to root_path
+      end
+      puts action_name
+      if action_name == 'edit' or action_name == 'destroy'
+        flash[:notice] = 'Você não é o responsável por esta publicação.'
+        redirect_to root_path if @bolha.user_id != current_user.id
+      end
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_bolha
       @bolha = Bolha.find(params[:id])
@@ -75,4 +88,8 @@ class BolhasController < ApplicationController
     def bolha_params
       params.require(:bolha).permit(:title, :l_name, :r_name, :content, :l_image, :r_image)
     end
+
+    private
+
+
 end
