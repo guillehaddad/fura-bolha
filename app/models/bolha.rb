@@ -1,4 +1,6 @@
 class Bolha < ActiveRecord::Base
+  belongs_to :user
+  has_many :comments
 
   #validations
   validates :title, :l_name, :r_name, :l_image, :r_image, :content, presence: true

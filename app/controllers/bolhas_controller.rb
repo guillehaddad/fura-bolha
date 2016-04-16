@@ -1,5 +1,7 @@
 class BolhasController < ApplicationController
   before_action :set_bolha, only: [:show, :edit, :update, :destroy]
+  before_action :user_login, only: [:new, :create, :edit, :destroy]
+
 
   # GET /bolhas
   # GET /bolhas.json
@@ -10,6 +12,7 @@ class BolhasController < ApplicationController
   # GET /bolhas/1
   # GET /bolhas/1.json
   def show
+    @comments = @bolha.comments
   end
 
   # GET /bolhas/new
@@ -25,6 +28,7 @@ class BolhasController < ApplicationController
   # POST /bolhas.json
   def create
     @bolha = Bolha.new(bolha_params)
+    @bolha.user_id = current_user.id
 
     respond_to do |format|
       if @bolha.save

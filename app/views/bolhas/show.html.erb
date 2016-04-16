@@ -26,3 +26,14 @@
 
 <%= link_to 'Edit', edit_bolha_path(@bolha) %> |
 <%= link_to 'Back', bolhas_path %>
+
+<div id="comments">
+	<%= render 'comments/comments' %>
+</div>
+
+<%=form_for(Comment.new, url: comments_path, method: :post, remote: true) do |f| %>
+	<%= f.label :content %>
+	<%= f.text_area :content %>
+	<%= f.hidden_field :bolha_id, value: @bolha.id %>
+	<%= f.submit 'Enviar', class: 'btn btn-succes btn-xs' %>
+<% end %>

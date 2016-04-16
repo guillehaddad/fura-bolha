@@ -1,0 +1,19 @@
+{
+  "name": "furabolha",
+  "version": "0.0.0",
+  "authors": [
+    "Guillermo Haddad <cejotagui@yahoo.com.br>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+  "bootstrap": "latest"
+  }
+
+}
